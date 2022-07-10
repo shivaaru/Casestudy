@@ -1,0 +1,3 @@
+{
+    "mongoURI": "mongodb+srv://userone:userone@libraryapp.lswirdz.mongodb.net/casestudy?retryWrites=true&w=majority"
+  }
