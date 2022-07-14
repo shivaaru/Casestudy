@@ -63,7 +63,7 @@ app.use('/admin',adminRouter);
 app.use('/admins',adminRouter1);
 app.use('/users',booksRouter);
 app.use('/index',indexRouter);
-
+app.use('/delete/:no',booksRouter);
 
 //app.get('/index',function(req,res){
  // res.render("index",
@@ -136,6 +136,9 @@ app.get("/dashboard",isAuth,(req,res)=>{
 app.get("/index",isAuth,(req,res)=>{
   res.render("index");
 });
+app.get("/delete/:no",isAuth,(req,res)=>{
+  res.render("/delete/:no");
+});
 app.get("/log",isAuth,(req,res)=>{
   res.render("log");
 });
@@ -150,4 +153,7 @@ app.post('/logout',(req,res)=>{
 
 
 
-app.listen(5000);
+const server = app.listen(process.env.PORT || 5000,() =>{
+  const port = server.address().port;
+  console.log(`Express is workingon port $"{port}`);
+});

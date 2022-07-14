@@ -45,6 +45,14 @@ function router(nav){
         }) 
      
     });
+
+    booksRouter.get("/delete/:no",(req,res)=>{
+        const no = req.params.no;
+        Bookdata.deleteOne({"_id":no})
+        .then(()=>{
+            res.redirect('/books')
+        })
+    });
     return booksRouter;
 }
 

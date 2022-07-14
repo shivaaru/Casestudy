@@ -45,6 +45,14 @@ function router(nav){
         });
     });
     
+    authorRouter.get("/delete/:no",(req,res)=>{
+        const no = req.params.no;
+        Authordata.deleteOne({"_id":no})
+        .then(()=>{
+            res.redirect('/authors')
+        })
+    });
+
     return authorRouter;
 
 }
