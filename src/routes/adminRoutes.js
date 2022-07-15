@@ -25,6 +25,26 @@ function router(nav){
     });
    
 
+    adminRouter.post('/update',  (req,res)=>{
+        var item = {
+            title: req.body.title,
+            author: req.body.author,
+            genre: req.body.genre,
+            image: req.body.image
+           };
+
+      let query = {_id:req.params.id};
+      const update =  Bookdata.findOneAndUpdate(query,item,);
+           if(update){
+            console.log("updated successfully");
+           
+         
+            res.redirect('/books');
+          }
+          return;
+    
+   });
+
     return adminRouter;
 }
 

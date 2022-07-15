@@ -40,10 +40,21 @@ function router(nav){
             res.render('author',{
                 nav,
                 title:'Library',
-                author//: authors[]//
+                author
             });
         });
     });
+
+    
+    authorRouter.get("/edit/:id", async (req,res)=>{
+        const author = await Authordata.findById(req.params.id);
+          
+         res.render('edit_author',{
+              nav,
+             title:'Library',
+             author: author
+           })
+         })
     
     authorRouter.get("/delete/:no",(req,res)=>{
         const no = req.params.no;

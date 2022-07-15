@@ -64,16 +64,10 @@ app.use('/admins',adminRouter1);
 app.use('/users',booksRouter);
 app.use('/index',indexRouter);
 app.use('/delete/:no',booksRouter);
-
-//app.get('/index',function(req,res){
- // res.render("index",
-  // {
-  //    nav,
-  //    title:'Library'
-  // });
-  //});//
-  
-
+app.use('/edit/:id',authorRouter);
+app.use('/update',adminRouter1);
+app.use('/edit/:id',booksRouter);
+app.use('/update',adminRouter);
  
 
 
@@ -155,5 +149,5 @@ app.post('/logout',(req,res)=>{
 
 const server = app.listen(process.env.PORT || 5000,() =>{
   const port = server.address().port;
-  console.log(`Express is workingon port $"{port}`);
+  console.log(`Express is working on port $"{port}`);
 });

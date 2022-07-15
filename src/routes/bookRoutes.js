@@ -46,6 +46,16 @@ function router(nav){
      
     });
 
+    booksRouter.get("/edit/:id", async (req,res)=>{
+        const book = await Bookdata.findById(req.params.id);
+          
+         res.render('edit_book',{
+              nav,
+             title:'Library',
+             book: book
+           })
+         })
+
     booksRouter.get("/delete/:no",(req,res)=>{
         const no = req.params.no;
         Bookdata.deleteOne({"_id":no})

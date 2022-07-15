@@ -26,6 +26,26 @@ function router(nav){
      res.redirect('/authors');
     });
    
+    adminRouter1.post('/update',  (req,res)=>{
+        var item = {
+            name: req.body.name,
+            book: req.body.book,
+            dob: req.body.dob,
+            image: req.body.image
+           };
+
+      let query = {_id:req.params.id};
+      const update =  Authordata.findOneAndUpdate(query,item,);
+           if(update){
+            console.log("updated successfully");
+           
+         
+            res.redirect('/books');
+          }
+          return;
+    
+   });
+
 
     return adminRouter1;
 }
