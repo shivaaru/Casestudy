@@ -40,7 +40,7 @@ function router(nav){
             console.log("updated successfully");
            
          
-            res.redirect('/books');
+            res.redirect('/authors');
           }
           return;
     
